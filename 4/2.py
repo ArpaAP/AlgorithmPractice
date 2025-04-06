@@ -4,6 +4,7 @@ B = list(map(int, input()))[::-1]
 
 count = 0
 
+
 def roundup_carry(v: list):
     carry = 0
 
@@ -14,6 +15,7 @@ def roundup_carry(v: list):
 
     if carry > 0:
         v.append(carry)
+
 
 def ladd(a: list, b: list) -> list:
     c = [0] * max(len(a), len(b))
@@ -28,6 +30,7 @@ def ladd(a: list, b: list) -> list:
 
     return c
 
+
 def lmult(a: list, b: list) -> list:
     c = [0] * (len(a) + len(b) - 1)
 
@@ -39,17 +42,20 @@ def lmult(a: list, b: list) -> list:
 
     return c
 
+
 def pow_by_exp(u: list, m: int) -> list:
     if len(u) == 0:
         return []
-    
+
     return [0] * m + u
+
 
 def div_by_exp(u: list, m: int) -> list:
     if len(u) == 0:
         return []
-    
+
     return u[m:]
+
 
 def remove_leading_zeros(lst: list) -> list:
     while len(lst) > 0 and lst[-1] == 0:
@@ -57,11 +63,13 @@ def remove_leading_zeros(lst: list) -> list:
 
     return lst
 
+
 def rem_by_exp(u: list, m: int) -> list:
     if len(u) == 0:
         return []
-    
+
     return remove_leading_zeros(u[:m])
+
 
 def prod(u: list, v: list) -> list:
     global count
@@ -74,7 +82,7 @@ def prod(u: list, v: list) -> list:
 
     if n <= threshold:
         return lmult(u, v)
-    
+
     m = n // 2
 
     x = div_by_exp(u, m)
@@ -92,7 +100,8 @@ def prod(u: list, v: list) -> list:
 
     return ladd(t8, t7)
 
+
 result = prod(A, B)
 
 print(count)
-print(*result[::-1], sep='')
+print(*result[::-1], sep="")

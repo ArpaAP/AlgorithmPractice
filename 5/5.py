@@ -5,10 +5,11 @@ C = int(input())
 
 cache = []
 
+
 def pathsum(T, n, r, c):
     if cache[r][c] > -1:
         return cache[r][c]
-    
+
     if r < n - 1:
         v = T[r][c] + max(pathsum(T, n, r + 1, c), pathsum(T, n, r + 1, c + 1))
     else:
@@ -26,7 +27,7 @@ def path(T, n, r, c):
 
         if r >= n - 1:
             return
-        
+
         if cache[r + 1][c] > cache[r + 1][c + 1]:
             inner(r + 1, c)
         else:
@@ -50,4 +51,3 @@ for _ in range(C):
 
     print(v)
     print(*P)
-

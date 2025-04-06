@@ -4,6 +4,7 @@ S = list(map(int, input().split()))
 
 count = 0
 
+
 def partition(low, high, pivotpoint):
     global count
 
@@ -15,12 +16,13 @@ def partition(low, high, pivotpoint):
             j += 1
             S[i], S[j] = S[j], S[i]
             count += 1
-    
+
     pivotpoint = j
     S[low], S[pivotpoint] = S[pivotpoint], S[low]
     count += 1
 
     return pivotpoint
+
 
 def quicksort(low, high):
     if low < high:
@@ -28,6 +30,7 @@ def quicksort(low, high):
         pivotpoint = partition(low, high, pivotpoint)
         quicksort(low, pivotpoint - 1)
         quicksort(pivotpoint + 1, high)
+
 
 quicksort(0, N - 1)
 

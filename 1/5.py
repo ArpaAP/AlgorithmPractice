@@ -7,6 +7,7 @@ S.sort()
 
 X = list(map(int, input().split()))
 
+
 def binary_search(arr, x):
     left, right = 0, len(arr) - 1
 
@@ -21,9 +22,10 @@ def binary_search(arr, x):
 
     return -1
 
+
 for x in X:
     idx = binary_search(S, x)
     if idx < N and S[idx] == x:
-        print(f'{x} is in {idx + 1}.')
+        print(f"{x} is in {idx + 1}.")
     else:
-        print(f'{x} is not in S.')
+        print(f"{x} is not in S.")

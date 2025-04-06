@@ -4,6 +4,7 @@ S = list(map(int, input().split()))
 
 count = 0
 
+
 def merge(h, m, left, right, ls):
     global count
 
@@ -36,7 +37,7 @@ def merge(h, m, left, right, ls):
 def mergesort(n, ls):
     if n == 1:
         return
-    
+
     h = n // 2
     m = n - h
 
@@ -47,6 +48,7 @@ def mergesort(n, ls):
     mergesort(m, right)
 
     merge(h, m, left, right, ls)
+
 
 result = mergesort(N, S)
 

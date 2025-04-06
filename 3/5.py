@@ -6,14 +6,15 @@ board[r][c] = 0
 
 count = 0
 
+
 def tromino(top, left, n, missing_r, missing_c):
     global count
 
     # 영역이 2x2이면, 구멍을 제외한 나머지 3칸에 같은 번호를 채움
     if n == 2:
         count += 1
-        for i in range(top, top+n):
-            for j in range(left, left+n):
+        for i in range(top, top + n):
+            for j in range(left, left + n):
                 if i == missing_r and j == missing_c:
                     continue
                 board[i][j] = count
@@ -36,40 +37,41 @@ def tromino(top, left, n, missing_r, missing_c):
     count += 1
     # 각 사분면에 가상의 구멍(트로미노를 놓은 자리)을 만들어 줌
     if missing_quad != 0:
-        board[top+h-1][left+h-1] = count
+        board[top + h - 1][left + h - 1] = count
     if missing_quad != 1:
-        board[top+h-1][left+h] = count
+        board[top + h - 1][left + h] = count
     if missing_quad != 2:
-        board[top+h][left+h-1] = count
+        board[top + h][left + h - 1] = count
     if missing_quad != 3:
-        board[top+h][left+h] = count
+        board[top + h][left + h] = count
 
     # 각 사분면에 대해 재귀 호출을 수행
     # 재귀 호출 시, 각 사분면의 구멍 좌표는 원래 구멍이 있던 곳 또는 중앙에 놓은 트로미노 칸이 된다.
-    
+
     # top-left
     if missing_quad == 0:
         tromino(top, left, h, missing_r, missing_c)
     else:
-        tromino(top, left, h, top+h-1, left+h-1)
-    
+        tromino(top, left, h, top + h - 1, left + h - 1)
+
     # top-right
     if missing_quad == 1:
-        tromino(top, left+h, h, missing_r, missing_c)
+        tromino(top, left + h, h, missing_r, missing_c)
     else:
-        tromino(top, left+h, h, top+h-1, left+h)
-    
+        tromino(top, left + h, h, top + h - 1, left + h)
+
     # bottom-left
     if missing_quad == 2:
-        tromino(top+h, left, h, missing_r, missing_c)
+        tromino(top + h, left, h, missing_r, missing_c)
     else:
-        tromino(top+h, left, h, top+h, left+h-1)
-    
+        tromino(top + h, left, h, top + h, left + h - 1)
+
     # bottom-right
     if missing_quad == 3:
-        tromino(top+h, left+h, h, missing_r, missing_c)
+        tromino(top + h, left + h, h, missing_r, missing_c)
     else:
-        tromino(top+h, left+h, h, top+h, left+h)
+        tromino(top + h, left + h, h, top + h, left + h)
+
 
 # 전체 보드(0,0)에서 시작하여 N×N 영역을 채우기.
 tromino(0, 0, N, r, c)

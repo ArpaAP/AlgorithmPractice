@@ -5,7 +5,8 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     int N, K;
     int prev, tmp;
     cin >> N >> K;
@@ -14,13 +15,18 @@ int main() {
 
     vector<int> B(K + 1, 0);
 
-    for (int n = 0; n <= N; ++n) {
+    for (int n = 0; n <= N; ++n)
+    {
         prev = 1;
 
-        for (int k = 0; k <= min(n, K); ++k) {
-            if (k == 0) {
+        for (int k = 0; k <= min(n, K); ++k)
+        {
+            if (k == 0)
+            {
                 B[k] = 1;
-            } else {
+            }
+            else
+            {
                 tmp = B[k];
                 B[k] = (B[k] + prev) % MOD;
                 prev = tmp;

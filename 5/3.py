@@ -33,6 +33,7 @@ for k in range(1, N + 1):
                 D[i][j] = D[i][k] + D[k][j]
                 P[i][j] = k
 
+
 def path(u, v):
     p = []
 
@@ -40,7 +41,7 @@ def path(u, v):
         k = P[u][v]
         if k == 0:
             return
-        
+
         inner(u, k)
         p.append(k)
         inner(k, v)
@@ -49,9 +50,11 @@ def path(u, v):
 
     return p
 
+
 def print_matrix(m):
     for row in m[1:]:
         print(*row[1:])
+
 
 print_matrix(D)
 print_matrix(P)
@@ -63,4 +66,4 @@ for u, v in L:
     elif W[u][v] < INF:
         print(u, v)
     else:
-        print('NONE')
+        print("NONE")

@@ -3,6 +3,7 @@ N, K = map(int, input().split())
 count = 0
 ls = []
 
+
 def hanoi(n, src, via, dst):
     global count
 
@@ -15,6 +16,7 @@ def hanoi(n, src, via, dst):
         hanoi(1, src, via, dst)
         hanoi(n - 1, via, src, dst)
 
-hanoi(N, 'A', 'B', 'C')
-print(f'{ls[K - 1][0]} -> {ls[K - 1][1]}')
+
+hanoi(N, "A", "B", "C")
+print(f"{ls[K - 1][0]} -> {ls[K - 1][1]}")
 print(count)

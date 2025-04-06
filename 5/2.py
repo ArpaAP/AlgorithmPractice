@@ -11,6 +11,7 @@ K = min(K, N - K)
 dp = {}
 count = 0
 
+
 def binom(n, k):
     global count
 
@@ -18,14 +19,15 @@ def binom(n, k):
 
     if k == 0 or k == n:
         return 1
-    
+
     if (n, k) in dp:
         return dp[(n, k)]
-    
+
     r = (binom(n - 1, k - 1) + binom(n - 1, k)) % 10007
     dp[(n, k)] = r
 
     return r
+
 
 print(binom(N, K))
 print(count)
