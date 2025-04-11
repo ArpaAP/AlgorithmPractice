@@ -1,5 +1,5 @@
-# 5-5
-# Triangle Path (2): Find Optimal Solution
+# 5-4
+# Triangle Path (1): Find Optimal Value
 
 C = int(input())
 
